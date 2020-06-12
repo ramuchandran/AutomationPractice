@@ -22,7 +22,7 @@ public class TestCheckOrder {
 
 WebDriver driver;
 	
-	@BeforeClass
+	@BeforeClass(groups = {"functest", "checkintest"})
 	public void init() {
 		System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
 		driver= new ChromeDriver();
@@ -51,7 +51,7 @@ WebDriver driver;
 		    driver.findElement(By.linkText("Sign out")).click();
 	}
 	
-	@AfterClass
+	@AfterClass(groups = {"functest", "checkintest"})
 	public void tearDown() {
 		driver.quit();
 	}

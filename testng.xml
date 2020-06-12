@@ -3,12 +3,12 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
   
-  <!--  groups>
+  <groups>
     <run>
-      <exclude name=""  />
-      <include name="checkintest"  />
+      <!--exclude name=""  /-->
+      <include name="checkintest"/>
     </run>
-  </groups-->
+  </groups>
   
     <classes>
       <class name="com.vcit.automation.TestLogin"/>

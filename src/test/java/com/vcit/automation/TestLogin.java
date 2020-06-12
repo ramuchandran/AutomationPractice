@@ -22,7 +22,7 @@ public class TestLogin {
 	
 	WebDriver wd;
 	
-	@BeforeClass
+	@BeforeClass(groups = {"functest", "checkintest"})
 	public void init() {
 		System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
 		wd= new ChromeDriver();
@@ -54,7 +54,7 @@ public class TestLogin {
 		assertEquals(element.getText(), "CREATE AN ACCOUNT");
 	}
 	
-	@AfterClass
+	@AfterClass(groups = {"functest", "checkintest"})
 	public void tearDown() {
 		wd.quit();
 	}
