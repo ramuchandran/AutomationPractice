@@ -23,5 +23,5 @@
 hs_err_pid*
 
 #test output folders
-/test-output
-/target
+test-output/
+target/
