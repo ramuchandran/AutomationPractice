@@ -14,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.vcit.automation.keys.LoginKeys;
@@ -40,12 +41,18 @@ public class TestLogin {
 		assertEquals(element.getText(),"Invalid email address.");
 	}
 	
-	@Test(groups = {"functest"})
-	public void testCustomerRegistrationWithValidEmail() throws Exception {
+	@DataProvider(name = "users")
+	public Object[][] userLoginDetails(){
+		return new Object[][] {{"ramu.chandran@gmail.com"},{"ramu123@gmail.com"}};
+	}
+	
+	@Test(groups = {"functest"}, dataProvider = "users")
+	public void testCustomerRegistrationWithValidEmail(String user) throws Exception {
 		wd.navigate().to("http://automationpractice.com/");
 		wd.findElement(By.cssSelector(LoginKeys.signOnCss)).click();
 		wd.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		wd.findElement(By.id("email_create")).sendKeys("ramu123@gmail.com");
+		System.out.println(user);
+		wd.findElement(By.id("email_create")).sendKeys(user);
 		wd.findElement(By.id("email_create")).sendKeys(Keys.ENTER);
 		wd.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		Thread.sleep(5000);
