@@ -21,8 +21,6 @@ public class HomePage {
 	private static String PAGE_URL="http://automationpractice.com";
 	private WebDriver driver;
 
-//This is the new way to implement the Page Objects
-//	This is the new way to implement the Page Objects
 
 	//Apply as Developer Button
 	@FindBy(how = How.LINK_TEXT, using = "Sign in")
