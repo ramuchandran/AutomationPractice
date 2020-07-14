@@ -25,10 +25,24 @@ public class TestAlerts {
 	
 	@Test
 	public void testSimpleAlert() throws InterruptedException {
+		/**
 		driver.get("https://www.w3schools.com/js/tryit.asp?filename=tryjs_alert");
 		driver.switchTo().frame("iframeResult");
 		WebElement element = driver.findElement(By.xpath("//button[contains(text(),'Try it')]"));
 		element.click();
+		Alert alert= driver.switchTo().alert();
+		String value = alert.getText();
+		assertEquals(value, "I am an alert box!");
+		alert.accept();
+		**/
+	}
+	
+	@Test
+	public void testSimpleAlertWithPageObject() throws InterruptedException {
+		driver.get("https://www.w3schools.com/js/tryit.asp?filename=tryjs_alert");
+		driver.switchTo().frame("iframeResult");
+		AlertsPage page = new AlertsPage(driver);
+		page.clickTryIt();
 		Alert alert= driver.switchTo().alert();
 		String value = alert.getText();
 		assertEquals(value, "I am an alert box!");
