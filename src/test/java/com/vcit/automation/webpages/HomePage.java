@@ -38,6 +38,7 @@ public class HomePage {
 	public HomePage(WebDriver driver){
 		this.driver=driver;
 		driver.get(PAGE_URL);
+		driver.manage().deleteAllCookies();
 		//Initialise Elements
 		PageFactory.initElements(driver, this);
 	}
